@@ -26,6 +26,7 @@ export const AddTodoInput: React.FC<AddTodoInputProps> = (props) => {
         value={value}
         onChange={handleChange}
         onKeyPress={handleKeyPress}
+        className="new-todo-input"
       />
     </div>
   );
