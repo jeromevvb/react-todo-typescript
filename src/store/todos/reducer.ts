@@ -1,11 +1,23 @@
-import { TodoActions, TodoState } from "./types";
-import { ADD_TODO } from "./actions";
+import { TodoActions, Todo } from "./types";
+import { ADD_TODO, UPDATE_COMPLETE_TODO } from "./actions";
 
-export default (state: TodoState = [], action: TodoActions) => {
+const initialState: Todo[] = [];
+
+export default (state = initialState, action: TodoActions): Todo[] => {
   switch (action.type) {
     case ADD_TODO:
       return [...state, action.payload];
+    case UPDATE_COMPLETE_TODO:
+      return state.reduce<Todo[]>((finalState, todo) => {
+        if (todo.id === action.payload.id) {
+          return [
+            ...finalState,
+            { ...todo, complete: action.payload.complete },
+          ];
+        }
 
+        return [...finalState, todo];
+      }, []);
     default:
       return state;
   }
