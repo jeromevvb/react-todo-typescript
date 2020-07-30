@@ -2,6 +2,10 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import todos from "./todos/reducer";
 import { composeWithDevTools } from "redux-devtools-extension";
 
-const store = createStore(combineReducers({ todos }), composeWithDevTools());
+const rootReducer = combineReducers({ todos });
+
+export type AppState = ReturnType<typeof rootReducer>;
+
+const store = createStore(rootReducer, composeWithDevTools());
 
 export default store;
