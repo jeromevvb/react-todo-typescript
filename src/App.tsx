@@ -1,20 +1,18 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import AddTodoInput from "./components/AddTodoInput";
 import { useDispatch, useSelector } from "react-redux";
 import { addTodo } from "./store/todos/actions";
-import { TodoState } from "./store/todos/types";
 import { TodoLine } from "./components/TodoLine";
 import { AppState } from "./store";
+import uuid from "./helpers/uuid";
 
 function App() {
   const dispatch = useDispatch();
   const todos = useSelector((state: AppState) => state.todos);
-  console.log(todos);
 
   const onSaveTodo = (todoText: string) => {
-    dispatch(addTodo({ content: todoText, complete: false }));
+    dispatch(addTodo({ content: todoText, complete: false, id: uuid() }));
   };
 
   return (
