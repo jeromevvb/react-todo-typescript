@@ -1,4 +1,4 @@
-import { ADD_TODO, UPDATE_COMPLETE_TODO } from "./actions";
+import { ADD_TODO, UPDATE_COMPLETE_TODO, DELETE_TODO } from "./actions";
 
 export interface Todo {
   content: string;
@@ -17,7 +17,7 @@ interface UpdateCompleteTodoAction {
 }
 
 interface DeleteTodoAction {
-  type: "DELETE_TODO";
+  type: typeof DELETE_TODO;
   payload: { id: string };
 }
 
