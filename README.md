@@ -1,3 +1,7 @@
+I created a very simple todo app with redux and typescript in order to understand better how typescript works
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

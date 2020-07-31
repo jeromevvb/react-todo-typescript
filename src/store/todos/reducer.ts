@@ -1,5 +1,5 @@
 import { TodoActions, Todo } from "./types";
-import { ADD_TODO, UPDATE_COMPLETE_TODO } from "./actions";
+import { ADD_TODO, UPDATE_COMPLETE_TODO, DELETE_TODO } from "./actions";
 
 const initialState: Todo[] = [];
 
@@ -18,6 +18,8 @@ export default (state = initialState, action: TodoActions): Todo[] => {
 
         return [...finalState, todo];
       }, []);
+    case DELETE_TODO:
+      return state.filter((todo) => todo.id !== action.payload.id);
     default:
       return state;
   }

@@ -2,7 +2,7 @@ import React from "react";
 import { Todo } from "../store/todos/types";
 import { TodoCheckIndicator } from "./TodoCheckIndicator";
 import { useDispatch } from "react-redux";
-import { updateCompleteTodo } from "../store/todos/actions";
+import { updateCompleteTodo, deleteTodo } from "../store/todos/actions";
 
 interface TodoLineProps {
   todo: Todo;
@@ -17,6 +17,10 @@ export const TodoLine: React.FC<TodoLineProps> = ({ todo }) => {
     );
   };
 
+  const onDelete = () => {
+    dispatch(deleteTodo({ id: todo.id }));
+  };
+
   return (
     <div className="todo-line">
       <div className="todo-check-indicator">
@@ -26,6 +30,9 @@ export const TodoLine: React.FC<TodoLineProps> = ({ todo }) => {
         />
       </div>
       <div className="todo-content">{todo.content}</div>
+      <div className="todo-delete-button">
+        <button onClick={onDelete}>X</button>
+      </div>
     </div>
   );
 };
