@@ -2,6 +2,7 @@ import { Todo, TodoActions } from "./types";
 
 export const ADD_TODO = "ADD_TODO";
 export const UPDATE_COMPLETE_TODO = "UPDATE_COMPLETE_TODO";
+export const UPDATE_CONTENT_TODO = "UPDATE_CONTENT_TODO";
 export const DELETE_TODO = "DELETE_TODO";
 
 export const addTodo = (payload: Todo): TodoActions => {
@@ -17,6 +18,16 @@ export const updateCompleteTodo = (payload: {
 }): TodoActions => {
   return {
     type: UPDATE_COMPLETE_TODO,
+    payload,
+  };
+};
+
+export const updateContentTodo = (payload: {
+  id: string;
+  content: string;
+}): TodoActions => {
+  return {
+    type: UPDATE_CONTENT_TODO,
     payload,
   };
 };

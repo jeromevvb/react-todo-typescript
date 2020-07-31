@@ -1,5 +1,10 @@
 import { TodoActions, Todo } from "./types";
-import { ADD_TODO, UPDATE_COMPLETE_TODO, DELETE_TODO } from "./actions";
+import {
+  ADD_TODO,
+  UPDATE_COMPLETE_TODO,
+  DELETE_TODO,
+  UPDATE_CONTENT_TODO,
+} from "./actions";
 
 const initialState: Todo[] = [];
 
@@ -14,6 +19,14 @@ export default (state = initialState, action: TodoActions): Todo[] => {
             ...finalState,
             { ...todo, complete: action.payload.complete },
           ];
+        }
+
+        return [...finalState, todo];
+      }, []);
+    case UPDATE_CONTENT_TODO:
+      return state.reduce<Todo[]>((finalState, todo) => {
+        if (todo.id === action.payload.id) {
+          return [...finalState, { ...todo, content: action.payload.content }];
         }
 
         return [...finalState, todo];

@@ -1,6 +1,11 @@
+.App {
+  text-align: center;
+}
 .todo-card {
   background: #fff;
-  margin: 130px auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 130px;
   max-width: 500px;
   position: relative;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
@@ -15,6 +20,16 @@
   box-sizing: border-box;
   background: rgba(0, 0, 0, 0.003);
   box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
+}
+
+.edit-todo-input {
+  padding: 4px;
+  width: 100%;
+  line-height: 1.4em;
+  font-size: 24px;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.003);
+  border: 1px solid #898a89;
 }
 
 .todo-line {
@@ -35,4 +50,13 @@
   flex: 1 1 auto;
   text-align: left;
   padding-left: 30px;
+  padding-right: 10px;
+}
+
+footer {
+  color: #777;
+  padding: 10px 15px;
+  height: 20px;
+  text-align: left;
+  border-top: 1px solid #e6e6e6;
 }
